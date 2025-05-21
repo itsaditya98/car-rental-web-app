@@ -1,0 +1,1 @@
+Web app provides car rental service which has customer panel for making booking requests and admin panel which can only be accessed by vendor via authentication. Built on HTML/CSS and node express JS. CI/CD workflow to test, containerize app and deploy to development server where it can be pulled and connected to mongo container running separately.
