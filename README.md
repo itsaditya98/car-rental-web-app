@@ -1,1 +1,4 @@
-Web app provides car rental service which has customer panel for making booking requests and admin panel which can only be accessed by vendor via authentication. Built on HTML/CSS and node express JS. CI/CD workflow to test, containerize app and deploy to development server where it can be pulled and connected to mongo container running separately.
+Web app provides car rental service which has a customer panel for making booking requests and an admin panel to explore booking requests which can only be accessed by the vendor through admin login authentication. 
+Built on HTML/CSS and node express JS. 
+Automated by CI/CD workflow to test, build the docker image of an app and then deploy to a development server (such as dockerhub, amazon ecr, etc) from where this app docker image can be pulled by the tester to the local system, cloud platforms, etc.
+Then mongo image will be pulled from dockerhub which will serve as the database for this app image pulled earlier and the blueprint will laid on a docker compose file to run both images as separate containers connected to an each other so that the app backend can make queries to the mongo db.
