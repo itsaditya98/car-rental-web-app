@@ -1,0 +1,173 @@
+/* Reset some default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style the banner section */
+.banner {
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 1fr 1fr;
+ column-gap: 5px;
+}
+
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.banner h2 {
+    font-size: 4rem;
+    color: #333;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.cars h2 {
+    background-color:bisque;
+}
+
+/* Style the cars section */
+.cars {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: beige;
+}
+
+.car-card {
+    width: 30%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.car-card img {
+    width: 100%;
+    height: auto;
+}
+
+.about-us {
+    text-align: center;
+    background-color: beige;
+    font-size:xx-large;
+    height: auto;
+}
+
+.contact {
+    background-color: beige;
+}
+
+.contact h2{
+    padding: 2rem;
+}
+
+.contact h3{
+    padding: 2rem;
+}
+
+.contact p{
+    text-align: center;
+}
+
+.booking-form, .s, .Login {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em;
+    block-size: auto;
+    background-color: beige;
+}
+
+.input-field{
+    margin: 30px;
+}
+
+.submit{
+    border: #333;
+}
+
+/* Style the footer */
+footer {
+    position: fixed;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    bottom:0;
+}
+
+.container {
+
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Admin</title>
+</head>
+<body>
+<header>
+        <h1>XYZ Car Rental Services</h1>
+        <nav>
+            <ul>
+                <li><a href="/admin">Back to Admin Panel</a></li>
+            </ul>
+        </nav>
+</header>
+
+<section class="banner">
+
+        <div class="banner-img">
+            <img src="../images/banner.jpg" alt="Car Rental Banner">
+        </div>
+        <div class="banner-content">
+            <h2>@ affordable Price</h2>
+        </div>
+
+</section>
+
+
+<div class="container">
+    <h style="font-size:x-large">Admin Panel</h>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</Address></th>
+                <th>Days</th>
+                <th>Vehicle</th>             
+            </tr>
+        </thead>
+        <tbody>
+            <% docs.forEach(function(item) { %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.phone %></td>
+                    <td><%= item.address %></td>
+                    <td><%= item.days %></td>
+                    <td><%= item.vehicle %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+          
+    </table>
+ </div>
+
+ <footer>
+        <p>&copy; 2023 XYZ Car Rental Service</p>
+ </footer>
+    
+</body>
+</html>

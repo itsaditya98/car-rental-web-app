@@ -1,0 +1,169 @@
+const express = require('express');
+
+const router = express.Router();
+
+const db = require('../db/db');
+
+router.get("/index", (req, res) => {
+    res.render('index')
+});
+
+router.get("/about", (req, res) => {
+    res.render('about')
+});
+
+router.get("/contact", (req, res) => {
+    res.render('contact')
+});
+
+router.get("/booking-mini", (req, res) => {
+    res.render('booking-mini')
+});
+
+router.get("/booking-sedan", (req, res) => {
+    res.render('booking-sedan')
+});
+
+router.get("/booking-suv", (req, res) => {
+    res.render('booking-suv')
+});
+
+router.get("/login", (req, res) => {
+    res.render('login')
+});
+
+router.post("/book-mini", (req, res) => {
+    var name = req.body.name;
+    var phone = req.body.phone;
+    var address = req.body.address;
+    var days = req.body.days;
+    var vehicle = "mini";
+
+    var data ={
+        "name" : name,
+        "phone" : phone,
+        "address" : address,
+        "days" : days,  
+        "vehicle" : vehicle 
+        }
+
+    db.collection('booking').insertOne(data, (error, collection) => {
+
+    console.log("request received")
+
+    });   
+
+    return res.redirect('/index')
+
+})
+
+router.post("/book-sedan", (req, res) => {
+    var name = req.body.name;
+    var phone = req.body.phone;
+    var address = req.body.address;
+    var days = req.body.days;
+    var vehicle = "sedan";
+    
+    var data ={
+        "name" : name,
+        "phone" : phone,
+        "address" : address,
+        "days" : days,  
+        "vehicle" : vehicle 
+
+    }
+    
+    db.collection('booking').insertOne(data, (error, collection) => {
+    
+        console.log("request received")
+        
+    
+    });   
+
+    return res.redirect('/index')
+   
+})
+
+router.post("/book-suv", (req, res) => {
+    var name = req.body.name;
+    var phone = req.body.phone;
+    var address = req.body.address;
+    var days = req.body.days;
+    var vehicle = "suv";
+        
+    var data ={
+        "name" : name,
+        "phone" : phone,
+        "address" : address,
+        "days" : days,  
+        "vehicle" : vehicle   
+                 
+    }
+        
+    db.collection('booking').insertOne(data, (error, collection) => {
+        
+        console.log("request received")
+        
+        
+    });   
+        
+    return res.redirect('/index')
+        
+})
+
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.user) {
+    return next();
+  } else {
+    res.status(403).send('Unauthorized access');
+  }
+}
+
+router.post('/login', async (req, res) => {
+        const username = req.body.user
+        const password = req.body.password
+        const us = await db.collection('users').findOne({user: username})
+
+        if(us.password == password) {
+            try {
+        req.session.user={username};
+        res.redirect('/admin');
+        } catch (err) {
+        console.error('Error fetching bookings:', err);
+        res.status(500).send('Error fetching bookings');
+        }}
+    });
+
+router.get("/admin", isAuthenticated, async (req, res) => {
+    try{
+      const bookings = await db.collection('booking').find({}).toArray();
+      res.render('admin', { docs: bookings });
+    } catch (err) {
+      console.error('Error fetching bookings:', err);
+      res.status(500).send('Error fetching bookings');
+    }
+});
+
+router.post("/search", isAuthenticated, async (req, res) => {
+
+    const phone = req.body.phone;
+    try {
+    const search = await db.collection('booking').find({phone: phone}).toArray();
+    res.render('search', { docs: search });
+    } catch (err) {
+      console.error('Error fetching result:', err);
+      res.status(500).send('Error fetching result');
+    }
+});
+
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      return res.status(500).send('Error logging out');
+    }
+    res.redirect('/login');
+  });
+});
+
+module.exports = router;
