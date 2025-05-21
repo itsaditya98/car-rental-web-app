@@ -1,4 +1,4 @@
-name: Build and Deply
+name: Build and Deploy
 
 on:
   push:
@@ -40,6 +40,6 @@ jobs:
     - name: Push Docke Imagege
     - uses: docker/build-push-action@v3
       with:
-        content: .
+        context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/car-rental-web-app:1.0
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:1.0
