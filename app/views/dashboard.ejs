@@ -9,18 +9,28 @@
 <body>
 <header>
         <h1>XYZ Car Rental Services</h1>
-        
 </header>
-
 <nav>
-        <ul>
-            <li><a href="/admin/dashboard">Back to Dashboard</a></li>
-        </ul>
+    <ul>
+        <li style="color: white;">Logged in to Admin</li>   
+    </ul>
 </nav>
 
 
+<section class="s">
+
+<form action="/admin/logout" method="POST">
+    <button type="submit">Logout</button>
+</form>
+<form method="post" action="/admin/search">
+    <input type="tel" name="phone" placeholder="Search by phone">
+    <button type="submit">Search</button>
+</form>
+</section>
+
+
 <div class="container">
-    <h style="font-size:x-large">Search Results</h>
+    <h style="font-size:x-large">Bookings</h>
 
     <table>
         <thead>
@@ -29,7 +39,8 @@
                 <th>Phone</th>
                 <th>Address</Address></th>
                 <th>Days</th>
-                <th>Vehicle</th>             
+                <th>Vehicle</th>
+                <th>Delete</th>             
             </tr>
         </thead>
         <tbody>
@@ -40,6 +51,11 @@
                     <td><%= item.address %></td>
                     <td><%= item.days %></td>
                     <td><%= item.vehicle %></td>
+                    <td data-label="Delete">
+                    <form method="post" action="/admin/delete/<%= item._id %>" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                    <button type="submit">Delete</button>
+                    </form>
+                    </td>
                 </tr>
             <% }); %>
         </tbody>
