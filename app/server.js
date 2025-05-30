@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const session = require('express-session');
 const db = require('./db/db');
-const routes = require('./routes/routes');
+const bookingRoutes = require('./routes/booking');
+const adminRoutes = require('./routes/admin');
 
 
 const app = express();
@@ -25,7 +26,8 @@ app.use(session({
     cookie: {maxAge: 60000}
 }));
 
-app.use('/', routes);
+app.use('/', bookingRoutes);
+app.use('/admin', adminRoutes)
 
 app.listen(3000, () => {
     console.log("App listening on port 3000")

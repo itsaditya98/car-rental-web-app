@@ -1,6 +1,6 @@
 
 var mongoose = require("mongoose")
-mongoose.connect('mongodb://host.docker.internal:27018/db', {
+mongoose.connect('mongodb://localhost:27017/db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

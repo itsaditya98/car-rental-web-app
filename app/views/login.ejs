@@ -10,30 +10,27 @@
 
     <header>
         <h1>XYZ Car Rental Services</h1>
-        <nav>
-            <ul>
-                <li><a href="/index">Home</a></li>
-            </ul>
-        </nav>
+        <h2>Ease & Comfort @ Affordable Prices</h2>
     </header>
+    
+    <nav>
+        <ul>
+            <li><a href="/index">Home</a></li>
+        </ul>
+    </nav>
 
     <section class="banner">
 
         <div class="banner-img">
             <img src="../images/banner.jpg" alt="Car Rental Banner">
         </div>
-        
-        <div class="banner-content">
-            <h2>@ affordable Price</h2>
-        </div>
 
     </section>
 
     <section class="Login">
         
-        <h2>Enter username and password</h2>
 
-        <form action="/login" method="post">            
+        <form id="login-form" action="/admin/login" method="post">            
             
             <div class="input-field">
 
@@ -48,7 +45,7 @@
             </div>
 
             <div>
-                <input type="submit" class="login" value="submit">
+                <button type="submit" class="login">Login</button>
             </div>
 
         </form>

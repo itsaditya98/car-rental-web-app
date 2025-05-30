@@ -9,31 +9,20 @@
 <body>
 <header>
         <h1>XYZ Car Rental Services</h1>
-        <nav>
-            <ul>
-                Logged in to Admin
-            </ul>
-        </nav>
 </header>
+<nav>
+    <ul>
+        <li style="color: white;">Logged in to Admin</li>   
+    </ul>
+</nav>
 
-<section class="banner">
-
-        <div class="banner-img">
-            <img src="../images/banner.jpg" alt="Car Rental Banner">
-        </div>
-        
-        <div class="banner-content">
-            <h2>@ affordable Price</h2>
-        </div>
-
-</section>
 
 <section class="s">
+
+<form action="/admin/logout" method="POST">
+    <button type="submit">Logout</button>
 </form>
-    <form action="/logout" method="POST">
-      <button type="submit">Logout</button>
-</form>
-<form method="post" action="/search">
+<form method="post" action="/admin/search">
     <input type="tel" name="phone" placeholder="Search by phone">
     <button type="submit">Search</button>
 </form>
@@ -41,7 +30,7 @@
 
 
 <div class="container">
-    <h style="font-size:x-large">Admin Panel</h>
+    <h style="font-size:x-large">Bookings</h>
 
     <table>
         <thead>
@@ -50,7 +39,8 @@
                 <th>Phone</th>
                 <th>Address</Address></th>
                 <th>Days</th>
-                <th>Vehicle</th>             
+                <th>Vehicle</th>
+                <th>Delete</th>             
             </tr>
         </thead>
         <tbody>
@@ -61,6 +51,11 @@
                     <td><%= item.address %></td>
                     <td><%= item.days %></td>
                     <td><%= item.vehicle %></td>
+                    <td data-label="Delete">
+                    <form method="post" action="/admin/delete/<%= item._id %>" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                    <button type="submit">Delete</button>
+                    </form>
+                    </td>
                 </tr>
             <% }); %>
         </tbody>
