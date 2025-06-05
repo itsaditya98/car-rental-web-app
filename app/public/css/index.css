@@ -11,8 +11,9 @@ body {
     line-height: 1.6;
 }
 
+
 header {
-    background-color: #2c3e50;
+    background-color: #95abc1;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -28,26 +29,28 @@ header h2 {
     font-size: medium;
 }
 
-.nav {
-    background-color: #000;
-}
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
     gap: 40px;
-    background-color: #000;
+    background-color: white;
 }
 
 nav a {
+    display: block;
     color: #fff;
+    background-color: #2c3e50;
     text-decoration: none;
-    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: #95abc1;
+    transform: translate(-5px);
 }
 
 .banner {
@@ -101,13 +104,13 @@ nav a:hover {
 }
 
 .book-btn:hover {
-    background-color: #2980b9;
+    background-color: #95abc1;
 }
 
 .about-us {
-
+    color: white;
     text-align: center;
-    background-color: gray;
+    background-color:#95abc1;
     border-radius: 10px;
     padding: 40px;
     margin: 60px;
@@ -115,24 +118,36 @@ nav a:hover {
     
 }
 
-.contact {
-    background-color: gray;
-    text-align: center;
-    padding: 30px 10px;
-    margin-top: 30px;
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 30px 10px;
+  background-color: #2c3e50;
+  margin-top: 30px;
 }
 
-.contact h2 {
-    margin-bottom: 15px;
+.contact,
+.address {
+  color: white;
+  text-align: center;
+  padding: 30px 10px;
 }
 
-.contact p a {
-    color: #2c3e50;
-    text-decoration: none;
+.contact h2,
+.address h2 {
+  margin-bottom: 15px;
+}
+
+.contact p a,
+.address p {
+  color: white;
+  text-decoration: none;
 }
 
 .contact p a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+  color: #95abc1;
 }
 
 footer {
@@ -210,7 +225,7 @@ footer {
 }
 
 #booking-form button:hover {
-  background-color: #2980b9;
+  background-color: #95abc1;
 }
 
 #login-form button {
@@ -224,7 +239,7 @@ footer {
 }
 
 #login-form button:hover {
-  background-color: #2980b9;
+  background-color: #95abc1;
 }
 
 .s, .Login {
