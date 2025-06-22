@@ -1,9 +1,9 @@
-
-var mongoose = require("mongoose")
-mongoose.connect('mongodb://mongodb:27017/db', {
+const mongoose = require("mongoose")
+mongoose.connect('mongodb://localhost:27017/db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+;
 
 var db=mongoose.connection;
 

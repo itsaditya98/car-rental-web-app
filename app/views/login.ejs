@@ -11,13 +11,13 @@
     <header>
         <h1>XYZ Car Rental Services</h1>
         <h2>Ease & Comfort @ Affordable Prices</h2>
-    </header>
     
     <nav>
         <ul>
             <li><a href="/index">Home</a></li>
         </ul>
     </nav>
+    </header>
 
     <section class="banner">
 
@@ -55,6 +55,14 @@
     <footer>
         <p>&copy; 2023 XYZ Car Rental Service</p>
     </footer>
+
+<script>
+  // Show popup if ?success=true is in URL
+  if (window.location.search.includes('authentication=fail')) {
+    alert('Either username or password is wrong!');
+  }
+</script>
+
 
 </body>
 </html>
