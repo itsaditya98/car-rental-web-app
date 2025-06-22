@@ -19,16 +19,23 @@ router.get("/login", (req, res) => {
 router.post('/login', async (req, res) => {
         const username = req.body.user
         const password = req.body.password
+        try{
         const us = await db.collection('users').findOne({user: username})
 
+        if (!us) {
+        return res.status(401).redirect('/admin/login?authentication=fail')
+        }
+
         if(us.password == password) {
-            try {
         req.session.user={username};
         res.redirect('/admin/dashboard');
-        } catch (err) {
+        }else {
+        return res.status(401).redirect('/admin/login?authentication=fail')
+        } 
+        }catch (err) {
         console.error('Error fetching bookings:', err);
         res.status(500).send('Error fetching bookings');
-        }}
+        }
 });
 
 router.get("/dashboard", isAuthenticated, async (req, res) => {

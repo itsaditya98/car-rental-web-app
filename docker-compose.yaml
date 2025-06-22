@@ -2,14 +2,15 @@ version: '3.8'
 services:
   my-app:
     image: itsaditya98/my-app:1.0
+    MONGO_URI: mongodb://mongodb:27017
     depends_on:
       - mongodb
     ports:
-     - 3000:3000
+     - 80:3000
   mongodb:
     image: mongo
     ports: 
-      - 27018:27017
+      - 27017:27017
     volumes:
       - mongo-data:/data/db
 volumes:
