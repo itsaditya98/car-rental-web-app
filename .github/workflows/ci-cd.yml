@@ -36,9 +36,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Push Docke Imagege
+    - name: Push Docker Image
       uses: docker/build-push-action@v3
       with:
         context: ./
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:1.0
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:2.0
